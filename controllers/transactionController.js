@@ -81,7 +81,8 @@ class TransactionController{
             date: req.body.date,
         },{
             where:{
-                id: req.params.id
+                id: req.params.id,
+                UserId: req.user.id
             }
         })
         .then(data => {
@@ -99,7 +100,8 @@ class TransactionController{
     static deleteTransaction(req, res,next){
         Transaction.destroy({
             where:{
-                id: req.params.id
+                id: req.params.id,
+                UserId: req.user.id
             }
         })
         .then(data => {
