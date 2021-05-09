@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Transaction.init({
-    UserId: DataTypes.INTEGER,
-    amount: DataTypes.BIGINT,
-    type: DataTypes.STRING,
+    UserId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notNull: true,
+      },
+      allowNull: false
+    },
+    amount: {
+      type: DataTypes.BIGINT,
+      validate: {
+        notNull: true,
+      },
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.STRING,
+      validate: {
+        notNull: true,
+      },
+      allowNull: false
+    },
     note: DataTypes.STRING,
     date: DataTypes.DATE,
   }, {
